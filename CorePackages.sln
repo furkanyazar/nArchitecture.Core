@@ -70,6 +70,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Security.DependencyInj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Security.WebApi.Swagger", "Core.Security.WebApi.Swagger\Core.Security.WebApi.Swagger.csproj", "{5F448267-A147-4C86-9BEA-797AE93B0BBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Http", "Core.Http\Core.Http.csproj", "{77A08698-3C96-4D09-A797-0B674DC76665}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Http.RestSharp", "Core.Http.RestSharp\Core.Http.RestSharp.csproj", "{8E3FC549-328F-4595-BEA9-A1DB92EF200D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -180,6 +184,14 @@ Global
 		{5F448267-A147-4C86-9BEA-797AE93B0BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F448267-A147-4C86-9BEA-797AE93B0BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F448267-A147-4C86-9BEA-797AE93B0BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A08698-3C96-4D09-A797-0B674DC76665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A08698-3C96-4D09-A797-0B674DC76665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A08698-3C96-4D09-A797-0B674DC76665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A08698-3C96-4D09-A797-0B674DC76665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E3FC549-328F-4595-BEA9-A1DB92EF200D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E3FC549-328F-4595-BEA9-A1DB92EF200D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E3FC549-328F-4595-BEA9-A1DB92EF200D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E3FC549-328F-4595-BEA9-A1DB92EF200D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
