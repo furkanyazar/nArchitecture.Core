@@ -101,7 +101,8 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
     }
 
     public async Task<TEntity?> GetAsync(
-        Expression<Func<TEntity, bool>> predicate,
+        Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         bool withDeleted = false,
         bool enableTracking = true,
@@ -115,7 +116,11 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
             queryable = include(queryable);
         if (withDeleted)
             queryable = queryable.IgnoreQueryFilters();
-        return await queryable.FirstOrDefaultAsync(predicate, cancellationToken);
+        if (predicate != null)
+            queryable = queryable.Where(predicate);
+        if (orderBy != null)
+            return await orderBy(queryable).FirstOrDefaultAsync(cancellationToken);
+        return await queryable.FirstOrDefaultAsync(cancellationToken);
     }
 
     public async Task<IPaginate<TEntity>> GetListByDynamicAsync(
@@ -224,7 +229,8 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
     }
 
     public TEntity? Get(
-        Expression<Func<TEntity, bool>> predicate,
+        Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         bool withDeleted = false,
         bool enableTracking = true
@@ -237,7 +243,11 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
             queryable = include(queryable);
         if (withDeleted)
             queryable = queryable.IgnoreQueryFilters();
-        return queryable.FirstOrDefault(predicate);
+        if (predicate != null)
+            queryable = queryable.Where(predicate);
+        if (orderBy != null)
+            return orderBy(queryable).FirstOrDefault();
+        return queryable.FirstOrDefault();
     }
 
     public IPaginate<TEntity> GetList(
