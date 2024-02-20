@@ -17,7 +17,11 @@ public static class IQueryablePaginateExtensions
 
         int count = await source.CountAsync(cancellationToken).ConfigureAwait(false);
 
-        List<T> items = await source.Skip((index - from) * size).Take(size).ToListAsync(cancellationToken).ConfigureAwait(false);
+        List<T> items;
+        if (size == 0)
+            items = await source.ToListAsync(cancellationToken).ConfigureAwait(false);
+        else
+            items = await source.Skip((index - from) * size).Take(size).ToListAsync(cancellationToken).ConfigureAwait(false);
 
         Paginate<T> list =
             new()
@@ -38,7 +42,12 @@ public static class IQueryablePaginateExtensions
             throw new ArgumentException($"From: {from} > Index: {index}, must from <= Index");
 
         int count = source.Count();
-        var items = source.Skip((index - from) * size).Take(size).ToList();
+
+        List<T> items;
+        if (size == 0)
+            items = source.ToList();
+        else
+            items = source.Skip((index - from) * size).Take(size).ToList();
 
         Paginate<T> list =
             new()
