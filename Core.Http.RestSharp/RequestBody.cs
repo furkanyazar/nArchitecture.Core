@@ -1,6 +1,6 @@
 using RestSharp;
 
-namespace Core.Http.RestSharp;
+namespace NArchitecture.Core.Http.RestSharp;
 
 public class RequestBody
 {

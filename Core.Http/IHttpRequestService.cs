@@ -1,4 +1,4 @@
-namespace Core.Http;
+namespace NArchitecture.Core.Http;
 
 public interface IHttpRequestService<TRequest, TResponse>
 {
