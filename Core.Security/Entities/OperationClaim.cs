@@ -4,7 +4,6 @@ namespace NArchitecture.Core.Security.Entities;
 
 public class OperationClaim<TId> : Entity<TId>
 {
-    public TId? ParentId { get; set; }
     public string Name { get; set; }
 
     public OperationClaim()
@@ -12,16 +11,14 @@ public class OperationClaim<TId> : Entity<TId>
         Name = string.Empty;
     }
 
-    public OperationClaim(TId? parentId, string name)
+    public OperationClaim(string name)
     {
-        ParentId = parentId;
         Name = name;
     }
 
-    public OperationClaim(TId id, TId? parentId, string name)
+    public OperationClaim(TId id, string name)
         : base(id)
     {
-        ParentId = parentId;
         Name = name;
     }
 }
