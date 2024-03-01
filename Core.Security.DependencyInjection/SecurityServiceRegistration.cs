@@ -9,7 +9,8 @@ namespace NArchitecture.Core.Security.DependencyInjection;
 public static class SecurityServiceRegistration
 {
     public static IServiceCollection AddSecurityServices<TUserId, TOperationClaimId, TRefreshTokenId>(
-        this IServiceCollection services
+        this IServiceCollection services,
+        TokenOptions tokenOptions
     )
     {
         services.AddScoped<
@@ -18,6 +19,7 @@ public static class SecurityServiceRegistration
         >();
         services.AddScoped<IEmailAuthenticatorHelper, EmailAuthenticatorHelper>();
         services.AddScoped<IOtpAuthenticatorHelper, OtpNetOtpAuthenticatorHelper>();
+        services.AddSingleton(_ => tokenOptions);
 
         return services;
     }
