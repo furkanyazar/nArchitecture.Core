@@ -79,6 +79,7 @@ public static class MockRepositoryHelper
             .Setup(s =>
                 s.GetAsync(
                     It.IsAny<Expression<Func<TEntity, bool>>>(),
+                    It.IsAny<Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>>(),
                     It.IsAny<Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>>(),
                     It.IsAny<bool>(),
                     It.IsAny<bool>(),
@@ -88,6 +89,7 @@ public static class MockRepositoryHelper
             .ReturnsAsync(
                 (
                     Expression<Func<TEntity, bool>> expression,
+                    Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
                     Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include,
                     bool withDeleted,
                     bool enableTracking,
