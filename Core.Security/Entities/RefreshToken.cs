@@ -2,11 +2,11 @@
 
 namespace NArchitecture.Core.Security.Entities;
 
-public class RefreshToken<TUserId> : Entity<TUserId>
+public class RefreshToken<TId, TUserId> : Entity<TId>
 {
     public TUserId UserId { get; set; }
     public string Token { get; set; }
-    public DateTime ExpiresDate { get; set; }
+    public DateTime ExpirationDate { get; set; }
     public string CreatedByIp { get; set; }
     public DateTime? RevokedDate { get; set; }
     public string? RevokedByIp { get; set; }
@@ -20,20 +20,20 @@ public class RefreshToken<TUserId> : Entity<TUserId>
         CreatedByIp = string.Empty;
     }
 
-    public RefreshToken(TUserId userId, string token, DateTime expiresDate, string createdByIp)
+    public RefreshToken(TUserId userId, string token, DateTime expirationDate, string createdByIp)
     {
         UserId = userId;
         Token = token;
-        ExpiresDate = expiresDate;
+        ExpirationDate = expirationDate;
         CreatedByIp = createdByIp;
     }
 
-    public RefreshToken(TUserId id, TUserId userId, string token, DateTime expiresDate, string createdByIp)
+    public RefreshToken(TId id, TUserId userId, string token, DateTime expirationDate, string createdByIp)
         : base(id)
     {
         UserId = userId;
         Token = token;
-        ExpiresDate = expiresDate;
+        ExpirationDate = expirationDate;
         CreatedByIp = createdByIp;
     }
 }
