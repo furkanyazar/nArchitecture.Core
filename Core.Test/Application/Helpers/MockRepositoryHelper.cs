@@ -164,6 +164,7 @@ public static class MockRepositoryHelper
                     It.IsAny<Expression<Func<TEntity, bool>>>(),
                     It.IsAny<Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>?>(),
                     It.IsAny<bool>(),
+                    It.IsAny<bool>(),
                     It.IsAny<CancellationToken>()
                 )
             )

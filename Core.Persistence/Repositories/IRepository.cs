@@ -29,6 +29,7 @@ public interface IRepository<TEntity, TEntityId> : IQuery<TEntity>
     IPaginate<TEntity> GetListByDynamic(
         DynamicQuery dynamic,
         Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         int index = 0,
         int size = 10,
@@ -42,6 +43,7 @@ public interface IRepository<TEntity, TEntityId> : IQuery<TEntity>
         bool withDeleted = false,
         bool enableTracking = true
     );
+
     int Count(
         Expression<Func<TEntity, bool>>? predicate = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,

@@ -146,6 +146,7 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
     public async Task<IPaginate<TEntity>> GetListByDynamicAsync(
         DynamicQuery dynamic,
         Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         int index = 0,
         int size = 10,
@@ -163,6 +164,8 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
             queryable = queryable.IgnoreQueryFilters();
         if (predicate != null)
             queryable = queryable.Where(predicate);
+        if (orderBy != null)
+            return await orderBy(queryable).ToPaginateAsync(index, size, from: 0, cancellationToken);
         return await queryable.ToPaginateAsync(index, size, from: 0, cancellationToken);
     }
 
@@ -170,10 +173,15 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
         Expression<Func<TEntity, bool>>? predicate = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         bool withDeleted = false,
+        bool enableTracking = true,
         CancellationToken cancellationToken = default
     )
     {
         IQueryable<TEntity> queryable = Query();
+        if (!enableTracking)
+            queryable = queryable.AsNoTracking();
+        if (include != null)
+            queryable = include(queryable);
         if (withDeleted)
             queryable = queryable.IgnoreQueryFilters();
         if (predicate != null)
@@ -183,6 +191,7 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
 
     public async Task<int> CountAsync(
         Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         bool withDeleted = false,
         bool enableTracking = true,
         CancellationToken cancellationToken = default
@@ -191,6 +200,8 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
         IQueryable<TEntity> queryable = Query();
         if (!enableTracking)
             queryable = queryable.AsNoTracking();
+        if (include != null)
+            queryable = include(queryable);
         if (withDeleted)
             queryable = queryable.IgnoreQueryFilters();
         if (predicate != null)
@@ -295,6 +306,7 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
     public IPaginate<TEntity> GetListByDynamic(
         DynamicQuery dynamic,
         Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         int index = 0,
         int size = 10,
@@ -311,16 +323,23 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
             queryable = queryable.IgnoreQueryFilters();
         if (predicate != null)
             queryable = queryable.Where(predicate);
+        if (orderBy != null)
+            return orderBy(queryable).ToPaginate(index, size);
         return queryable.ToPaginate(index, size);
     }
 
     public bool Any(
         Expression<Func<TEntity, bool>>? predicate = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
-        bool withDeleted = false
+        bool withDeleted = false,
+        bool enableTracking = true
     )
     {
         IQueryable<TEntity> queryable = Query();
+        if (!enableTracking)
+            queryable = queryable.AsNoTracking();
+        if (include != null)
+            queryable = include(queryable);
         if (withDeleted)
             queryable = queryable.IgnoreQueryFilters();
         if (predicate != null)
@@ -328,11 +347,18 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
         return queryable.Any();
     }
 
-    public int Count(Expression<Func<TEntity, bool>>? predicate = null, bool withDeleted = false, bool enableTracking = true)
+    public int Count(
+        Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
+        bool withDeleted = false,
+        bool enableTracking = true
+    )
     {
         IQueryable<TEntity> queryable = Query();
         if (!enableTracking)
             queryable = queryable.AsNoTracking();
+        if (include != null)
+            queryable = include(queryable);
         if (withDeleted)
             queryable = queryable.IgnoreQueryFilters();
         if (predicate != null)
@@ -340,7 +366,6 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
         return queryable.Count();
     }
 
-    protected async Task SetEntityAsDeletedAsync(TEntity entity, bool permanent)
     protected async Task SetEntityAsDeleted(
         TEntity entity,
         bool permanent,
