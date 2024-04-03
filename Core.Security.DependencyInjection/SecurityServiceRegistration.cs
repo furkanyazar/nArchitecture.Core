@@ -16,7 +16,7 @@ public static class SecurityServiceRegistration
         services.AddScoped<
             ITokenHelper<TUserId, TOperationClaimId, TRefreshTokenId>,
             JwtHelper<TUserId, TOperationClaimId, TRefreshTokenId>
-        >();
+        >(_ => new JwtHelper<TUserId, TOperationClaimId, TRefreshTokenId>(tokenOptions));
         services.AddScoped<IEmailAuthenticatorHelper, EmailAuthenticatorHelper>();
         services.AddScoped<IOtpAuthenticatorHelper, OtpNetOtpAuthenticatorHelper>();
         services.AddSingleton(_ => tokenOptions);

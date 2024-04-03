@@ -111,7 +111,7 @@ public static class MockRepositoryHelper
         mockRepo
             .Setup(r => r.AddAsync(It.IsAny<TEntity>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(
-                (TEntity entity) =>
+                (TEntity entity, CancellationToken cancellationToken) =>
                 {
                     entityList.Add(entity);
                     return entity;
@@ -126,7 +126,7 @@ public static class MockRepositoryHelper
         mockRepo
             .Setup(r => r.UpdateAsync(It.IsAny<TEntity>(), It.IsAny<CancellationToken>()))!
             .ReturnsAsync(
-                (TEntity entity) =>
+                (TEntity entity, CancellationToken cancellationToken) =>
                 {
                     TEntity? result = entityList.FirstOrDefault(x => x.Id!.Equals(entity.Id));
                     if (result != null)
