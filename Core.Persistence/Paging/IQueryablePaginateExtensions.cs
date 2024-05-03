@@ -43,11 +43,7 @@ public static class IQueryablePaginateExtensions
 
         int count = source.Count();
 
-        List<T> items;
-        if (size == 0)
-            items = source.ToList();
-        else
-            items = source.Skip((index - from) * size).Take(size).ToList();
+        List<T> items = source.Skip((index - from) * size).Take(size).ToList();
 
         Paginate<T> list =
             new()

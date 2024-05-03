@@ -37,6 +37,14 @@ public interface IRepository<TEntity, TEntityId> : IQuery<TEntity>
         bool enableTracking = true
     );
 
+    ICollection<TEntity> GetAll(
+        Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
+        bool withDeleted = false,
+        bool enableTracking = true
+    );
+
     bool Any(
         Expression<Func<TEntity, bool>>? predicate = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,

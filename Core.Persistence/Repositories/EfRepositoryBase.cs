@@ -169,6 +169,29 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
         return await queryable.ToPaginateAsync(index, size, from: 0, cancellationToken);
     }
 
+    public async Task<ICollection<TEntity>> GetAllAsync(
+        Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
+        bool withDeleted = false,
+        bool enableTracking = true,
+        CancellationToken cancellationToken = default
+    )
+    {
+        IQueryable<TEntity> queryable = Query();
+        if (!enableTracking)
+            queryable = queryable.AsNoTracking();
+        if (include != null)
+            queryable = include(queryable);
+        if (withDeleted)
+            queryable = queryable.IgnoreQueryFilters();
+        if (predicate != null)
+            queryable = queryable.Where(predicate);
+        if (orderBy != null)
+            return await orderBy(queryable).ToListAsync(cancellationToken);
+        return await queryable.ToListAsync(cancellationToken);
+    }
+
     public async Task<bool> AnyAsync(
         Expression<Func<TEntity, bool>>? predicate = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
@@ -326,6 +349,28 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>
         if (orderBy != null)
             return orderBy(queryable).ToPaginate(index, size);
         return queryable.ToPaginate(index, size);
+    }
+
+    public ICollection<TEntity> GetAll(
+        Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
+        bool withDeleted = false,
+        bool enableTracking = true
+    )
+    {
+        IQueryable<TEntity> queryable = Query();
+        if (!enableTracking)
+            queryable = queryable.AsNoTracking();
+        if (include != null)
+            queryable = include(queryable);
+        if (withDeleted)
+            queryable = queryable.IgnoreQueryFilters();
+        if (predicate != null)
+            queryable = queryable.Where(predicate);
+        if (orderBy != null)
+            return orderBy(queryable).ToList();
+        return queryable.ToList();
     }
 
     public bool Any(
