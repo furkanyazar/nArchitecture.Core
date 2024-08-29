@@ -1,5 +1,5 @@
-﻿using NArchitecture.Core.Persistence.Repositories;
-using NArchitecture.Core.Security.Enums;
+﻿using Core.Persistence.Repositories;
+using Core.Security.Enums;
 
 namespace Core.Security.Entities;
 

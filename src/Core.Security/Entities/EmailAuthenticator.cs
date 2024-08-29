@@ -1,4 +1,4 @@
-﻿using NArchitecture.Core.Persistence.Repositories;
+﻿using Core.Persistence.Repositories;
 
 namespace Core.Security.Entities;
 

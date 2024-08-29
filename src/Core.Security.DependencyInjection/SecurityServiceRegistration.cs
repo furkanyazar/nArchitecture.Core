@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using NArchitecture.Core.Security.EmailAuthenticator;
-using NArchitecture.Core.Security.JWT;
-using NArchitecture.Core.Security.OtpAuthenticator;
-using NArchitecture.Core.Security.OtpAuthenticator.OtpNet;
+using Core.Security.EmailAuthenticator;
+using Core.Security.JWT;
+using Core.Security.OtpAuthenticator;
+using Core.Security.OtpAuthenticator.OtpNet;
 
 namespace Core.Security.DependencyInjection;
 

@@ -4,9 +4,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using Microsoft.IdentityModel.Tokens;
-using NArchitecture.Core.Security.Encryption;
-using NArchitecture.Core.Security.Entities;
-using NArchitecture.Core.Security.Extensions;
+using Core.Security.Encryption;
+using Core.Security.Entities;
+using Core.Security.Extensions;
 
 namespace Core.Security.JWT;
 

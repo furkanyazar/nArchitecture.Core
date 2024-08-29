@@ -1,4 +1,4 @@
-﻿using NArchitecture.Core.Persistence.Paging;
+﻿using Core.Persistence.Paging;
 
 namespace Core.Application.Responses;
 

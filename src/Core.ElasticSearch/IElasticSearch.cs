@@ -1,4 +1,4 @@
-﻿using NArchitecture.Core.ElasticSearch.Models;
+﻿using Core.ElasticSearch.Models;
 using Nest;
 
 namespace Core.ElasticSearch;

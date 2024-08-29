@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using NArchitecture.Core.Persistence.DbMigrationApplier;
+using Core.Persistence.DbMigrationApplier;
 
 namespace Core.Persistence.WebApi;
 

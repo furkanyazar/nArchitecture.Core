@@ -1,6 +1,6 @@
 ﻿using Elasticsearch.Net;
-using NArchitecture.Core.ElasticSearch.Constants;
-using NArchitecture.Core.ElasticSearch.Models;
+using Core.ElasticSearch.Constants;
+using Core.ElasticSearch.Models;
 using Nest;
 using Nest.JsonNetSerializer;
 using Newtonsoft.Json;

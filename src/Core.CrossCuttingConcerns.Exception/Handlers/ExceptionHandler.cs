@@ -1,4 +1,4 @@
-﻿using NArchitecture.Core.CrossCuttingConcerns.Exception.Types;
+﻿using Core.CrossCuttingConcerns.Exception.Types;
 
 namespace Core.CrossCuttingConcerns.Exception.Handlers;
 

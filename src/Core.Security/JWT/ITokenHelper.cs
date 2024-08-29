@@ -1,4 +1,4 @@
-﻿using NArchitecture.Core.Security.Entities;
+﻿using Core.Security.Entities;
 
 namespace Core.Security.JWT;
 

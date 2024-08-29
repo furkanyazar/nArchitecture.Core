@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Moq;
-using NArchitecture.Core.Application.Rules;
-using NArchitecture.Core.Localization.Resource.Yaml;
-using NArchitecture.Core.Persistence.Repositories;
-using NArchitecture.Core.Test.Application.FakeData;
-using NArchitecture.Core.Test.Application.Helpers;
+using Core.Application.Rules;
+using Core.Localization.Resource.Yaml;
+using Core.Persistence.Repositories;
+using Core.Test.Application.FakeData;
+using Core.Test.Application.Helpers;
 
 namespace Core.Test.Application.Repositories;
 
