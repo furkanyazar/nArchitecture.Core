@@ -5,7 +5,7 @@ using NArchitecture.Core.Mailing;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.OpenSsl;
 
-namespace NArchitecture.Core.Mailing.MailKit;
+namespace Core.Mailing.MailKit;
 
 public class MailKitMailService : IMailService
 {

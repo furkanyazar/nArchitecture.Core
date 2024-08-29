@@ -2,7 +2,7 @@
 using NArchitecture.Core.CrossCuttingConcerns.Logging.Serilog;
 using Serilog;
 
-namespace NArchitecture.Core.CrossCuttingConcerns.Logging.Serilog.File;
+namespace Core.CrossCuttingConcerns.Logging.Serilog.File;
 
 public class SerilogFileLogger : SerilogLoggerServiceBase
 {

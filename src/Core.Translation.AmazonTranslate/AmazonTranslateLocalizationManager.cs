@@ -2,7 +2,7 @@
 using Amazon.Translate.Model;
 using NArchitecture.Core.Translation.Abstraction;
 
-namespace NArchitecture.Core.Translation.AmazonTranslate;
+namespace Core.Translation.AmazonTranslate;
 
 public class AmazonTranslateLocalizationManager : ITranslationService
 {

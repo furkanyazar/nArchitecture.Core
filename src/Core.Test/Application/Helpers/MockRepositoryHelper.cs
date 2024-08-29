@@ -4,7 +4,7 @@ using Moq;
 using NArchitecture.Core.Persistence.Paging;
 using NArchitecture.Core.Persistence.Repositories;
 
-namespace NArchitecture.Core.Test.Application.Helpers;
+namespace Core.Test.Application.Helpers;
 
 public static class MockRepositoryHelper
 {

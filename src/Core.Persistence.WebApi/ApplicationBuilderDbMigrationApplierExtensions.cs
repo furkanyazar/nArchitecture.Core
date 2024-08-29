@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using NArchitecture.Core.Persistence.DbMigrationApplier;
 
-namespace NArchitecture.Core.Persistence.WebApi;
+namespace Core.Persistence.WebApi;
 
 public static class ApplicationBuilderDbMigrationApplierExtensions
 {

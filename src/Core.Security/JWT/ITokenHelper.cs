@@ -1,6 +1,6 @@
 ﻿using NArchitecture.Core.Security.Entities;
 
-namespace NArchitecture.Core.Security.JWT;
+namespace Core.Security.JWT;
 
 public interface ITokenHelper<TUserId, TOperationClaimId, TRefreshTokenId>
 {

@@ -1,6 +1,6 @@
 ﻿using NArchitecture.Core.Persistence.Repositories;
 
-namespace NArchitecture.Core.Security.Entities;
+namespace Core.Security.Entities;
 
 public class UserGroupOperationClaim<TUserGroupId, TOperationClaimId> : Entity<TUserGroupId>
 {

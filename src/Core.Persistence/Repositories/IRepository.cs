@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using NArchitecture.Core.Persistence.Dynamic;
 using NArchitecture.Core.Persistence.Paging;
 
-namespace NArchitecture.Core.Persistence.Repositories;
+namespace Core.Persistence.Repositories;
 
 public interface IRepository<TEntity, TEntityId> : IQuery<TEntity>
     where TEntity : Entity<TEntityId>

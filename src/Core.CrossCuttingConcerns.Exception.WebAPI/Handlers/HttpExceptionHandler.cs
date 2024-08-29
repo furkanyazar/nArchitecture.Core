@@ -4,7 +4,7 @@ using NArchitecture.Core.CrossCuttingConcerns.Exception.Types;
 using NArchitecture.Core.CrossCuttingConcerns.Exception.WebApi.Extensions;
 using NArchitecture.Core.CrossCuttingConcerns.Exception.WebApi.HttpProblemDetails;
 
-namespace NArchitecture.Core.CrossCuttingConcerns.Exception.WebApi.Handlers;
+namespace Core.CrossCuttingConcerns.Exception.WebApi.Handlers;
 
 public class HttpExceptionHandler : ExceptionHandler
 {

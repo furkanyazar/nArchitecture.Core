@@ -8,7 +8,7 @@ using NArchitecture.Core.Security.Encryption;
 using NArchitecture.Core.Security.Entities;
 using NArchitecture.Core.Security.Extensions;
 
-namespace NArchitecture.Core.Security.JWT;
+namespace Core.Security.JWT;
 
 public class JwtHelper<TUserId, TOperationClaimId, TRefreshTokenId> : ITokenHelper<TUserId, TOperationClaimId, TRefreshTokenId>
 {

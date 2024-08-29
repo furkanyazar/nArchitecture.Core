@@ -1,4 +1,4 @@
-﻿namespace NArchitecture.Core.CrossCuttingConcerns.Logging.Configurations;
+﻿namespace Core.CrossCuttingConcerns.Logging.Configurations;
 
 public class FileLogConfiguration
 {

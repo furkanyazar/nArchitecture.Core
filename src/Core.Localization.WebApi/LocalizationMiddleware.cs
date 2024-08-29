@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
 using NArchitecture.Core.Localization.Abstraction;
 
-namespace NArchitecture.Core.Localization.WebApi;
+namespace Core.Localization.WebApi;
 
 public class LocalizationMiddleware
 {

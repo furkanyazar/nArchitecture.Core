@@ -4,7 +4,7 @@ using NArchitecture.Core.Security.JWT;
 using NArchitecture.Core.Security.OtpAuthenticator;
 using NArchitecture.Core.Security.OtpAuthenticator.OtpNet;
 
-namespace NArchitecture.Core.Security.DependencyInjection;
+namespace Core.Security.DependencyInjection;
 
 public static class SecurityServiceRegistration
 {

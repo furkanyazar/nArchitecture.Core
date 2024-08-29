@@ -1,4 +1,4 @@
-﻿namespace NArchitecture.Core.ElasticSearch.Models;
+﻿namespace Core.ElasticSearch.Models;
 
 public class ElasticSearchGetModel<T>
 {

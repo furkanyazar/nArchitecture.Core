@@ -6,7 +6,7 @@ using NArchitecture.Core.Persistence.Repositories;
 using NArchitecture.Core.Test.Application.FakeData;
 using NArchitecture.Core.Test.Application.Helpers;
 
-namespace NArchitecture.Core.Test.Application.Repositories;
+namespace Core.Test.Application.Repositories;
 
 public abstract class BaseMockRepository<TRepository, TEntity, TEntityId, TMappingProfile, TBusinessRules, TFakeData>
     where TEntity : Entity<TEntityId>, new()

@@ -1,4 +1,4 @@
-﻿namespace NArchitecture.Core.CrossCuttingConcerns.Exception.Types;
+﻿namespace Core.CrossCuttingConcerns.Exception.Types;
 
 public class ValidationException : System.Exception
 {

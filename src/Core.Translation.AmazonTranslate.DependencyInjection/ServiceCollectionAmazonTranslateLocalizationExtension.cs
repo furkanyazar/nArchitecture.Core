@@ -2,7 +2,7 @@
 using NArchitecture.Core.Translation.Abstraction;
 using NArchitecture.Core.Translation.AmazonTranslate;
 
-namespace NArchitecture.Core.Translation.AmazonTranslate.DependencyInjection;
+namespace Core.Translation.AmazonTranslate.DependencyInjection;
 
 public static class ServiceCollectionAmazonTranslateLocalizationExtension
 {

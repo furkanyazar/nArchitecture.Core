@@ -5,7 +5,7 @@ using NArchitecture.Core.CrossCuttingConcerns.Exception.WebApi.Handlers;
 using NArchitecture.Core.CrossCuttingConcerns.Logging;
 using NArchitecture.Core.CrossCuttingConcerns.Logging.Abstraction;
 
-namespace NArchitecture.Core.CrossCuttingConcerns.Exception.WebApi.Middleware;
+namespace Core.CrossCuttingConcerns.Exception.WebApi.Middleware;
 
 public class ExceptionMiddleware
 {

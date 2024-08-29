@@ -5,7 +5,7 @@ using Nest;
 using Nest.JsonNetSerializer;
 using Newtonsoft.Json;
 
-namespace NArchitecture.Core.ElasticSearch;
+namespace Core.ElasticSearch;
 
 public class ElasticSearchManager : IElasticSearch
 {

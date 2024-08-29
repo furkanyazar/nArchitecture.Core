@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using NArchitecture.Core.CrossCuttingConcerns.Logging;
 using NArchitecture.Core.CrossCuttingConcerns.Logging.Abstraction;
 
-namespace NArchitecture.Core.Application.Pipelines.Logging;
+namespace Core.Application.Pipelines.Logging;
 
 public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>, ILoggableRequest

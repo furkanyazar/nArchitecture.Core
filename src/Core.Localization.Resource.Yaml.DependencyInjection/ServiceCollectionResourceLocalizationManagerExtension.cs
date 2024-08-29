@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using NArchitecture.Core.Localization.Abstraction;
 
-namespace NArchitecture.Core.Localization.Resource.Yaml.DependencyInjection;
+namespace Core.Localization.Resource.Yaml.DependencyInjection;
 
 public static class ServiceCollectionResourceLocalizationManagerExtension
 {

@@ -2,7 +2,7 @@
 using NArchitecture.Core.Localization.Abstraction;
 using NArchitecture.Core.Translation.Abstraction;
 
-namespace NArchitecture.Core.Localization.Translation;
+namespace Core.Localization.Translation;
 
 public class TranslateLocalizationManager : ILocalizationService
 {

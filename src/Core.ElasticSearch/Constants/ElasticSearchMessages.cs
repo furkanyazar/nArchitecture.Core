@@ -1,4 +1,4 @@
-﻿namespace NArchitecture.Core.ElasticSearch.Constants;
+﻿namespace Core.ElasticSearch.Constants;
 
 public static class ElasticSearchMessages
 {

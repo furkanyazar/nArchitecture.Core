@@ -5,7 +5,7 @@ using NArchitecture.Core.CrossCuttingConcerns.Exception.Types;
 using NArchitecture.Core.Security.Constants;
 using NArchitecture.Core.Security.Extensions;
 
-namespace NArchitecture.Core.Application.Pipelines.Authorization;
+namespace Core.Application.Pipelines.Authorization;
 
 public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>, ISecuredRequest

@@ -2,7 +2,7 @@
 using NArchitecture.Core.Localization.Abstraction;
 using YamlDotNet.RepresentationModel;
 
-namespace NArchitecture.Core.Localization.Resource.Yaml;
+namespace Core.Localization.Resource.Yaml;
 
 public class ResourceLocalizationManager : ILocalizationService
 {

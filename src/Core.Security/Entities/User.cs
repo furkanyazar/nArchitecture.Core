@@ -1,7 +1,7 @@
 ﻿using NArchitecture.Core.Persistence.Repositories;
 using NArchitecture.Core.Security.Enums;
 
-namespace NArchitecture.Core.Security.Entities;
+namespace Core.Security.Entities;
 
 public class User<TId> : Entity<TId>
 {

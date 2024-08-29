@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using NArchitecture.Core.Persistence.DbMigrationApplier;
 
-namespace NArchitecture.Core.Persistence.DependencyInjection;
+namespace Core.Persistence.DependencyInjection;
 
 public static class ServiceCollectionDbMigrationApplierExtensions
 {

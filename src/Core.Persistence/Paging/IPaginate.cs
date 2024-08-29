@@ -1,4 +1,4 @@
-﻿namespace NArchitecture.Core.Persistence.Paging;
+﻿namespace Core.Persistence.Paging;
 
 public interface IPaginate<T>
 {
