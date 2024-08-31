@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
+using Core.Localization.Abstraction;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
-using Core.Localization.Abstraction;
 
 namespace Core.Localization.WebApi;
 

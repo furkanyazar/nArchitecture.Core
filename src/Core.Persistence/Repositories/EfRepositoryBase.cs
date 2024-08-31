@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Linq.Expressions;
 using System.Reflection;
+using Core.Persistence.Dynamic;
+using Core.Persistence.Paging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Query;
-using Core.Persistence.Dynamic;
-using Core.Persistence.Paging;
 
 namespace Core.Persistence.Repositories;
 

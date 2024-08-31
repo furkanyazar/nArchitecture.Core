@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
 using Core.Localization.Abstraction;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Localization.Resource.Yaml.DependencyInjection;
 

@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Core.Translation.Abstraction;
+﻿using Core.Translation.Abstraction;
 using Core.Translation.AmazonTranslate;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Translation.AmazonTranslate.DependencyInjection;
 

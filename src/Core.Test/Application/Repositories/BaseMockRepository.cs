@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using Moq;
 using Core.Application.Rules;
 using Core.Localization.Resource.Yaml;
 using Core.Persistence.Repositories;
 using Core.Test.Application.FakeData;
 using Core.Test.Application.Helpers;
+using Moq;
 
 namespace Core.Test.Application.Repositories;
 
