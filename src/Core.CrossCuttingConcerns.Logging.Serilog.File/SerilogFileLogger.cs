@@ -1,5 +1,4 @@
 ﻿using Core.CrossCuttingConcerns.Logging.Configurations;
-using Core.CrossCuttingConcerns.Logging.Serilog;
 using Serilog;
 
 namespace Core.CrossCuttingConcerns.Logging.Serilog.File;
@@ -11,7 +10,7 @@ public class SerilogFileLogger : SerilogLoggerServiceBase
     {
         Logger = new LoggerConfiguration()
             .WriteTo.File(
-                path: $"{Directory.GetCurrentDirectory() + configuration.FolderPath}.txt",
+                path: $"{Directory.GetCurrentDirectory() + configuration.FolderPath}.log",
                 rollingInterval: RollingInterval.Day,
                 retainedFileCountLimit: null,
                 fileSizeLimitBytes: 5000000,
