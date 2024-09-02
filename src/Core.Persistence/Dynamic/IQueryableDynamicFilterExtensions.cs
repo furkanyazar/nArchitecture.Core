@@ -21,7 +21,7 @@ public static class IQueryableDynamicFilterExtensions
         { "startswith", "StartsWith" },
         { "endswith", "EndsWith" },
         { "contains", "Contains" },
-        { "doesnotcontain", "Contains" }
+        { "doesnotcontain", "Contains" },
     };
 
     public static IQueryable<T> ToDynamic<T>(this IQueryable<T> query, DynamicQuery dynamicQuery)

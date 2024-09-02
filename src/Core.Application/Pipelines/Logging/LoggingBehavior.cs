@@ -32,7 +32,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
             {
                 MethodName = next.Method.Name,
                 Parameters = logParameters,
-                User = _httpContextAccessor.HttpContext.User.GetIdClaim() ?? "?"
+                User = _httpContextAccessor.HttpContext.User.GetIdClaim() ?? "?",
             };
 
         _logger.Information(JsonSerializer.Serialize(logDetail));

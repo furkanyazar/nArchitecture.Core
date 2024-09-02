@@ -69,7 +69,7 @@ public class MailKitMailService : IMailService
                     HeaderCanonicalizationAlgorithm = DkimCanonicalizationAlgorithm.Simple,
                     BodyCanonicalizationAlgorithm = DkimCanonicalizationAlgorithm.Simple,
                     AgentOrUserIdentifier = $"@{_mailSettings.DomainName}",
-                    QueryMethod = "dns/txt"
+                    QueryMethod = "dns/txt",
                 };
             HeaderId[] headers = { HeaderId.From, HeaderId.Subject, HeaderId.To };
             signer.Sign(email, headers);

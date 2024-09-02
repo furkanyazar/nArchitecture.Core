@@ -21,7 +21,7 @@ public class BearerSecurityRequirementOperationFilter : IOperationFilter
                         In = ParameterLocation.Header,
                     },
                     Array.Empty<string>()
-                }
+                },
             };
         operation.Security.Add(openApiSecurityRequirement);
     }

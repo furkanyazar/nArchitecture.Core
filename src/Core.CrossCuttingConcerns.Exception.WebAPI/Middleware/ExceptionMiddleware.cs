@@ -3,6 +3,7 @@ using System.Text.Json;
 using Core.CrossCuttingConcerns.Exception.WebApi.Handlers;
 using Core.CrossCuttingConcerns.Logging;
 using Core.CrossCuttingConcerns.Logging.Abstraction;
+using Core.Security.Extensions;
 using Microsoft.AspNetCore.Http;
 
 namespace Core.CrossCuttingConcerns.Exception.WebApi.Middleware;
@@ -52,7 +53,7 @@ public class ExceptionMiddleware
             {
                 MethodName = _next.Method.Name,
                 Parameters = logParameters,
-                User = _contextAccessor.HttpContext?.User.Identity?.Name ?? "?"
+                User = _contextAccessor.HttpContext?.User.GetIdClaim() ?? "?",
             };
 
         _loggerService.Information(JsonSerializer.Serialize(logDetail));

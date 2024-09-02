@@ -31,7 +31,7 @@ public static class IQueryablePaginateExtensions
                 From = from,
                 Count = count,
                 Items = items,
-                Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count))
+                Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count)),
             };
         return list;
     }
@@ -57,7 +57,7 @@ public static class IQueryablePaginateExtensions
                 From = from,
                 Count = count,
                 Items = items,
-                Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count))
+                Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count)),
             };
         return list;
     }
