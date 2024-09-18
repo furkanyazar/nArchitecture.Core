@@ -1,6 +1,7 @@
 ﻿using System.Collections.Immutable;
 using Core.Localization.Abstraction;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
 
 namespace Core.Localization.WebApi;
@@ -16,12 +17,21 @@ public class LocalizationMiddleware
 
     public async Task Invoke(HttpContext context, ILocalizationService localizationService)
     {
-        IList<StringWithQualityHeaderValue> acceptLanguages = context.Request.GetTypedHeaders().AcceptLanguage;
-        if (acceptLanguages.Count > 0)
-            localizationService.AcceptLocales = acceptLanguages
-                .OrderByDescending(x => x.Quality ?? 1)
-                .Select(x => x.Value.ToString())
-                .ToImmutableArray();
+        bool queryHasLanguage = context.Request.Query.TryGetValue("language", out StringValues language);
+
+        if (queryHasLanguage)
+        {
+            localizationService.AcceptLocales = language;
+        }
+        else
+        {
+            IList<StringWithQualityHeaderValue> acceptLanguages = context.Request.GetTypedHeaders().AcceptLanguage;
+            if (acceptLanguages.Count > 0)
+                localizationService.AcceptLocales = acceptLanguages
+                    .OrderByDescending(x => x.Quality ?? 1)
+                    .Select(x => x.Value.ToString())
+                    .ToImmutableArray();
+        }
 
         await _next(context);
     }
