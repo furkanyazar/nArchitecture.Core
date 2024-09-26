@@ -34,12 +34,7 @@ public class JwtHelper<TUserId, TOperationClaimId, TRefreshTokenId> : ITokenHelp
         JwtSecurityTokenHandler jwtSecurityTokenHandler = new();
         string? token = jwtSecurityTokenHandler.WriteToken(jwt);
 
-        return new AccessToken()
-        {
-            Token = token,
-            ExpirationDate = accessTokenExpiration,
-            OperationClaims = operationClaims.Select(oc => oc.Name),
-        };
+        return new AccessToken() { Token = token, ExpirationDate = accessTokenExpiration };
     }
 
     public RefreshToken<TRefreshTokenId, TUserId> CreateRefreshToken(User<TUserId> user, string ipAddress)
