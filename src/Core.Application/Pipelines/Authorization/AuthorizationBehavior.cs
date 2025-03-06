@@ -1,4 +1,4 @@
-﻿using Core.CrossCuttingConcerns.Exception.Types;
+using Core.CrossCuttingConcerns.Exception.Types;
 using Core.Security.Constants;
 using Core.Security.Extensions;
 using MediatR;
@@ -28,10 +28,12 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
         if (request.Roles.Any())
         {
             ICollection<string>? userRoleClaims = _httpContextAccessor.HttpContext.User.GetRoleClaims() ?? [];
-            bool isMatchedAUserRoleClaimWithRequestRoles = userRoleClaims.Any(userRoleClaim =>
-                userRoleClaim == GeneralOperationClaims.Admin || request.Roles.Contains(userRoleClaim)
-            );
-            if (!isMatchedAUserRoleClaimWithRequestRoles)
+            bool isNotMatchedAUserRoleClaimWithRequestRoles = userRoleClaims
+                .FirstOrDefault(userRoleClaim =>
+                    userRoleClaim == GeneralOperationClaims.Admin || request.Roles.Contains(userRoleClaim)
+                )
+                == null;
+            if (isNotMatchedAUserRoleClaimWithRequestRoles)
                 throw new AuthorizationException("You are not authorized.");
         }
 
