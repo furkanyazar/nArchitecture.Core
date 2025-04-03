@@ -23,16 +23,15 @@ public static class IQueryablePaginateExtensions
         else
             items = await source.Skip((index - from) * size).Take(size).ToListAsync(cancellationToken).ConfigureAwait(false);
 
-        Paginate<T> list =
-            new()
-            {
-                Index = index,
-                Size = size,
-                From = from,
-                Count = count,
-                Items = items,
-                Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count)),
-            };
+        Paginate<T> list = new()
+        {
+            Index = index,
+            Size = size,
+            From = from,
+            Count = count,
+            Items = items,
+            Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count)),
+        };
         return list;
     }
 
@@ -49,16 +48,15 @@ public static class IQueryablePaginateExtensions
         else
             items = source.Skip((index - from) * size).Take(size).ToList();
 
-        Paginate<T> list =
-            new()
-            {
-                Index = index,
-                Size = size,
-                From = from,
-                Count = count,
-                Items = items,
-                Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count)),
-            };
+        Paginate<T> list = new()
+        {
+            Index = index,
+            Size = size,
+            From = from,
+            Count = count,
+            Items = items,
+            Pages = (int)Math.Ceiling(count / (double)(size != 0 ? size : count)),
+        };
         return list;
     }
 }

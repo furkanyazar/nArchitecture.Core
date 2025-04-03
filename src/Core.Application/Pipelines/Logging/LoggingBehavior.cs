@@ -27,13 +27,12 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     {
         List<LogParameter> logParameters = [new LogParameter { Type = request.GetType().Name, Value = request }];
 
-        LogDetail logDetail =
-            new()
-            {
-                MethodName = next.Method.Name,
-                Parameters = logParameters,
-                User = _httpContextAccessor.HttpContext.User.GetIdClaim() ?? "?",
-            };
+        LogDetail logDetail = new()
+        {
+            MethodName = next.Method.Name,
+            Parameters = logParameters,
+            User = _httpContextAccessor.HttpContext.User.GetIdClaim() ?? "?",
+        };
 
         _logger.Information(JsonSerializer.Serialize(logDetail));
         return await next();
