@@ -43,20 +43,23 @@ public static class IQueryableDynamicFilterExtensions
         {
             if (f.Operator == "in")
             {
-                var inValues = f.Value.Split(',').Select(v => v.Trim());
+                var inValues = f.Value?.Split(',').Select(v => v.Trim());
+                if (inValues is null || !inValues.Any())
+                    throw new ArgumentException("Invalid Value for 'in' operator");
+
                 values.AddRange(inValues);
             }
             else if (f.Operator == "between")
             {
-                var betweenValues = f.Value.Split(',');
-                if (betweenValues.Length != 2)
+                var betweenValues = f.Value?.Split(',');
+                if (betweenValues is null || betweenValues.Length != 2)
                     throw new ArgumentException("Invalid Value for 'between' operator");
 
                 values.AddRange(betweenValues.Select(v => v.Trim()));
             }
             else
             {
-                values.Add(f.Value);
+                values.Add(f.Value ?? string.Empty);
             }
         }
 
