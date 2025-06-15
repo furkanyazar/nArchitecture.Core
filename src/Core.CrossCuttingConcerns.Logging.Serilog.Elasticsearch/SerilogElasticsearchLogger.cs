@@ -1,9 +1,8 @@
 ﻿using Core.CrossCuttingConcerns.Logging.Configurations;
-using Core.CrossCuttingConcerns.Logging.Serilog;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 
-namespace Core.CrossCuttingConcerns.Loggins.Serilog.Elasticsearch;
+namespace Core.CrossCuttingConcerns.Logging.Serilog.Elasticsearch;
 
 public class SerilogElasticsearchLogger : SerilogLoggerServiceBase
 {
