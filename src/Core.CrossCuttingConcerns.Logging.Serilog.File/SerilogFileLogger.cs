@@ -12,8 +12,6 @@ public class SerilogFileLogger : SerilogLoggerServiceBase
             .WriteTo.File(
                 path: $"{Directory.GetCurrentDirectory() + configuration.FolderPath}.log",
                 rollingInterval: RollingInterval.Day,
-                retainedFileCountLimit: null,
-                fileSizeLimitBytes: 5000000,
                 outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
             )
             .CreateLogger();
