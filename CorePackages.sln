@@ -76,7 +76,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Http", "src\Core.Http\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Http.RestSharp", "src\Core.Http.RestSharp\Core.Http.RestSharp.csproj", "{29CD982F-FD30-45E3-ABF4-C46487C238F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns.Loggins.Serilog.Elasticsearch", "src\Core.CrossCuttingConcerns.Loggins.Serilog.Elasticsearch\Core.CrossCuttingConcerns.Loggins.Serilog.Elasticsearch.csproj", "{658EC1B4-1F0B-43F3-B5CC-36F4CE0B066B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns.Logging.Serilog.Elasticsearch", "src\Core.CrossCuttingConcerns.Loggins.Serilog.Elasticsearch\Core.CrossCuttingConcerns.Logging.Serilog.Elasticsearch.csproj", "{658EC1B4-1F0B-43F3-B5CC-36F4CE0B066B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
