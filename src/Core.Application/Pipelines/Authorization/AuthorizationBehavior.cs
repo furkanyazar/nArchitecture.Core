@@ -1,3 +1,4 @@
+using Core.CrossCuttingConcerns.Exception.Constants;
 using Core.CrossCuttingConcerns.Exception.Types;
 using Core.Security.Constants;
 using Core.Security.Extensions;
@@ -23,7 +24,7 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
     )
     {
         if (!_httpContextAccessor.HttpContext.User.Claims.Any())
-            throw new AuthorizationException("You are not authenticated.");
+            throw new AuthorizationException(ExceptionMessages.NotAuthenticated);
 
         if (request.Roles.Any())
         {
@@ -33,7 +34,7 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
                     userRoleClaim == GeneralOperationClaims.Admin || request.Roles.Contains(userRoleClaim)
                 ) == null;
             if (isNotMatchedAUserRoleClaimWithRequestRoles)
-                throw new AuthorizationException("You are not authorized.");
+                throw new AuthorizationException(ExceptionMessages.NotAuthorized);
         }
 
         TResponse response = await next();

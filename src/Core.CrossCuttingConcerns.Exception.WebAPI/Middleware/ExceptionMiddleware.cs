@@ -1,5 +1,6 @@
 ﻿using System.Net.Mime;
 using System.Text.Json;
+using Core.CrossCuttingConcerns.Exception.Constants;
 using Core.CrossCuttingConcerns.Exception.WebApi.Handlers;
 using Core.CrossCuttingConcerns.Logging;
 using Core.CrossCuttingConcerns.Logging.Abstraction;
@@ -46,6 +47,9 @@ public class ExceptionMiddleware
 
     protected virtual Task LogException(HttpContext context, System.Exception exception)
     {
+        if (exception.Message == ExceptionMessages.NotAuthenticated || exception.Message == ExceptionMessages.NotAuthorized)
+            return Task.CompletedTask;
+
         List<LogParameter> logParameters = [new LogParameter { Type = context.GetType().Name, Value = exception.ToString() }];
 
         LogDetail logDetail = new()
@@ -55,7 +59,7 @@ public class ExceptionMiddleware
             User = _contextAccessor.HttpContext?.User.GetIdClaim() ?? "?",
         };
 
-        _loggerService.Information(JsonSerializer.Serialize(logDetail));
+        _loggerService.Error(JsonSerializer.Serialize(logDetail));
         return Task.CompletedTask;
     }
 }
